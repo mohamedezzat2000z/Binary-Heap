@@ -13,7 +13,7 @@ public class BenchMark {
         binaryHeap heapSortingAlgorithm = new binaryHeap(100);
         bubbleSort bubbleSortingAlgorithm = new bubbleSort();
         mergeSort mergeSortingAlgorithm = new mergeSort();
-        int[] arr = generateArray((int) Math.pow(10, 2));
+        int[] arr = generateArray((int) Math.pow(10, 5));
         int[] arrHeap = arr.clone();
         long[] timeHeap = new long[14];
         int[] arrMerge = arr.clone();
@@ -22,7 +22,7 @@ public class BenchMark {
         long[] timeBubble = new long[14];
 
         for (int i = 0; i < 14; i++) {
-            arr = generateArray((int) Math.pow(10, 2));
+            arr = generateArray((int) Math.pow(10, 5));
             arrHeap = arr.clone();
             arrMerge = arr.clone();
             arrBubble = arr.clone();
@@ -43,26 +43,33 @@ public class BenchMark {
             timeMerge[i] = endtime - startTime;
 
         }
-
+        int sum = 0;
         System.out.println();
         System.out.println("time for Heap sort n = " + arr.length);
         for (int j = 4; j < 14; j++) {
+            sum += timeHeap[j];
             System.out.print(timeHeap[j] + " ");
         }
-
+        System.out.println("average =" + sum / 10);
         System.out.println();
-
+        System.out.println();
+        sum = 0;
         System.out.println("time for Bubble sort n = " + arr.length);
         for (int j = 4; j < 14; j++) {
+            sum += timeBubble[j];
             System.out.print(timeBubble[j] + " ");
         }
-
+        System.out.println("average =" + sum / 10);
         System.out.println();
-
+        System.out.println();
+        sum = 0;
         System.out.println("time for Merge sort n = " + arr.length);
         for (int j = 4; j < 14; j++) {
+            sum += timeMerge[j];
             System.out.print(timeMerge[j] + " ");
         }
+        System.out.println("average =" + sum / 10);
+        System.out.println();
 
     }
 }

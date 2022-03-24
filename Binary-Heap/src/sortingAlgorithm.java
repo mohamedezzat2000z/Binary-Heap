@@ -1,3 +1,3 @@
 public interface sortingAlgorithm {
-    public Object[] sort(Object[] array);
+    public void sort(int[] array);
 }

@@ -1,8 +1,8 @@
-public class binaryHeap implements sortingAlgorithm {
+public class binaryHeap {
 
-    private Object[] array;
+    private int[] array;
 
-    public binaryHeap(Object[] o) {
+    public binaryHeap(int[] o) {
         this.array = o;
     }
 
@@ -14,8 +14,8 @@ public class binaryHeap implements sortingAlgorithm {
 
     }
 
-    public Object[] sort(Object[] array) {
-        return array;
+    public void sort(int[] array) {
+        
 
     }
 

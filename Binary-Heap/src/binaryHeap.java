@@ -4,7 +4,7 @@ public class binaryHeap implements sortingAlgorithm {
     private int size = 0;
 
     public binaryHeap(int size) {
-        array = new int[size + 2];
+        array = new int[size];
     }
 
     public void bulidMaxHeap(int[] nums) {
@@ -17,9 +17,9 @@ public class binaryHeap implements sortingAlgorithm {
 
     public void insert(int o) {
         try {
-            size++;
             array[size] = o;
             heapify(size, o);
+            size++;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class binaryHeap implements sortingAlgorithm {
     }
 
     private void heapify(int s, int k) {
-        while ((s > 1) && (k > array[s / 2])) {
+        while ((s > 0) && (k > array[s / 2])) {
             int temp = array[s];
             array[s] = array[s / 2];
             array[s / 2] = temp;

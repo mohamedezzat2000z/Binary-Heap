@@ -10,18 +10,18 @@ public class BenchMark {
     }
 
     public void bench() {
-        sortingAlgorithm heapSortingAlgorithm = new binaryHeap(100);
-        sortingAlgorithm bubbleSortingAlgorithm = new bubbleSort();
-        sortingAlgorithm mergeSortingAlgorithm = new mergeSort();
+        binaryHeap heapSortingAlgorithm = new binaryHeap(100);
+        bubbleSort bubbleSortingAlgorithm = new bubbleSort();
+        mergeSort mergeSortingAlgorithm = new mergeSort();
         int[] arr = generateArray((int) Math.pow(10, 2));
         int[] arrHeap = arr.clone();
-        long[] timeHeap = new long[11];
+        long[] timeHeap = new long[14];
         int[] arrMerge = arr.clone();
-        long[] timeMerge = new long[11];
+        long[] timeMerge = new long[14];
         int[] arrBubble = arr.clone();
-        long[] timeBubble = new long[11];
+        long[] timeBubble = new long[14];
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 14; i++) {
             arr = generateArray((int) Math.pow(10, 2));
             arrHeap = arr.clone();
             arrMerge = arr.clone();
@@ -38,7 +38,7 @@ public class BenchMark {
             timeBubble[i] = endtime - startTime;
 
             startTime = System.nanoTime();
-            mergeSortingAlgorithm.sort(arrMerge);
+            mergeSortingAlgorithm.sort(arrMerge, 0, arrMerge.length - 1);
             endtime = System.nanoTime();
             timeMerge[i] = endtime - startTime;
 
@@ -46,14 +46,14 @@ public class BenchMark {
 
         System.out.println();
         System.out.println("time for Heap sort n = " + arr.length);
-        for (int j = 1; j < 11; j++) {
+        for (int j = 4; j < 14; j++) {
             System.out.print(timeHeap[j] + " ");
         }
 
         System.out.println();
 
         System.out.println("time for Bubble sort n = " + arr.length);
-        for (int j = 1; j < 11; j++) {
+        for (int j = 4; j < 14; j++) {
             System.out.print(timeBubble[j] + " ");
         }
 

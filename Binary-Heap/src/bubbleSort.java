@@ -1,4 +1,4 @@
-public class bubbleSort implements sortingAlgorithm {
+public class bubbleSort {
 
     public void sort(int[] array) {
         int n = array.length;

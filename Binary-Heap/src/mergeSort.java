@@ -1,8 +1,9 @@
-public class mergeSort implements sortingAlgorithm {
-
-    public void sort(int arr[]) {
-        sort(arr, 0, arr.length - 1);
-    }
+public class mergeSort {
+    /*
+     * public void sort(int arr[]) {
+     * sort(arr, 0, arr.length - 1);
+     * }
+     */
 
     public void sort(int arr[], int start, int end) {
         if (start < end) {

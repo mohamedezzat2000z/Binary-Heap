@@ -1,4 +1,4 @@
-public class binaryHeap implements sortingAlgorithm {
+public class binaryHeap {
 
     public int[] array;
     private int size = 0;

@@ -14,44 +14,37 @@ public class mergeSort {
         }
     }
 
-    void merge(int arr[], int l, int m, int r)
-    {
-        int n1 = m - l + 1;
-        int n2 = r - m;
-  
-        int L[] = new int[n1];
-        int R[] = new int[n2];
-  
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[m + 1 + j];
-  
-        int i = 0, j = 0;
-  
-        int k = l;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                arr[k] = L[i];
-                i++;
+    void merge(int arr[], int low, int mid, int high) {
+        int i, l, r, k;
+        int[] temp = new int[arr.length];
+        l = low;
+        r = mid + 1;
+        i = low;
+
+        while ((l <= mid) && (r <= high)) {
+            if (arr[l] <= arr[r]) {
+                temp[i] = arr[l];
+                l++;
+            } else {
+                temp[i] = arr[r];
+                r++;
             }
-            else {
-                arr[k] = R[j];
-                j++;
-            }
-            k++;
-        }
-  
-        while (i < n1) {
-            arr[k] = L[i];
             i++;
-            k++;
         }
 
-        while (j < n2) {
-            arr[k] = R[j];
-            j++;
-            k++;
+        if (l > mid) {
+            for (k = r; k <= high; k++) {
+                temp[i] = arr[k];
+                i++;
+            }
+        } else {
+            for (k = l; k <= mid; k++) {
+                temp[i] = arr[k];
+                i++;
+            }
+        }
+        for (k = low; k <= high; k++) {
+            arr[k] = temp[k];
         }
     }
 

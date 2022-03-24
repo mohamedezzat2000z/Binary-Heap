@@ -60,7 +60,7 @@ public class BenchMark {
         System.out.println();
 
         System.out.println("time for Merge sort n = " + arr.length);
-        for (int j = 1; j < 11; j++) {
+        for (int j = 4; j < 14; j++) {
             System.out.print(timeMerge[j] + " ");
         }
 

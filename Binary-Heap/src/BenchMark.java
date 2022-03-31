@@ -13,7 +13,7 @@ public class BenchMark {
         binaryHeap heapSortingAlgorithm = new binaryHeap(100);
         bubbleSort bubbleSortingAlgorithm = new bubbleSort();
         mergeSort mergeSortingAlgorithm = new mergeSort();
-        int[] arr = generateArray((int) Math.pow(10, 5));
+        int[] arr = generateArray((int) Math.pow(10, 4));
         int[] arrHeap = arr.clone();
         long[] timeHeap = new long[14];
         int[] arrMerge = arr.clone();
@@ -22,7 +22,7 @@ public class BenchMark {
         long[] timeBubble = new long[14];
 
         for (int i = 0; i < 14; i++) {
-            arr = generateArray((int) Math.pow(10, 5));
+            arr = generateArray((int) Math.pow(10, 4));
             arrHeap = arr.clone();
             arrMerge = arr.clone();
             arrBubble = arr.clone();
@@ -38,7 +38,7 @@ public class BenchMark {
             timeBubble[i] = endtime - startTime;
 
             startTime = System.nanoTime();
-            mergeSortingAlgorithm.sort(arrMerge, 0, arrMerge.length - 1);
+            mergeSortingAlgorithm.sort(arrMerge);
             endtime = System.nanoTime();
             timeMerge[i] = endtime - startTime;
 

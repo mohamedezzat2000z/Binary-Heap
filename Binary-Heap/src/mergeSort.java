@@ -5,47 +5,66 @@ public class mergeSort {
      * }
      */
 
-    public void sort(int arr[], int start, int end) {
-        if (start < end) {
-            int mid = (start + end) / 2;
-            sort(arr, start, mid);
-            sort(arr, mid + 1, end);
-            merge(arr, start, mid, end);
+    public void sort(int arr[]) {
+        if(arr == null)
+        {
+            return;
         }
-    }
-
-    void merge(int arr[], int low, int mid, int high) {
-        int i, l, r, k;
-        int[] temp = new int[arr.length];
-        l = low;
-        r = mid + 1;
-        i = low;
-
-        while ((l <= mid) && (r <= high)) {
-            if (arr[l] <= arr[r]) {
-                temp[i] = arr[l];
-                l++;
-            } else {
-                temp[i] = arr[r];
-                r++;
+ 
+        if(arr.length > 1)
+        {
+            int mid = arr.length / 2;
+ 
+            // Split left part
+            int[] left = new int[mid];
+            for(int i = 0; i < mid; i++)
+            {
+                left[i] = arr[i];
             }
-            i++;
-        }
-
-        if (l > mid) {
-            for (k = r; k <= high; k++) {
-                temp[i] = arr[k];
+             
+            // Split right part
+            int[] right = new int[arr.length - mid];
+            for(int i = mid; i < arr.length; i++)
+            {
+                right[i - mid] = arr[i];
+            }
+            sort(left);
+            sort(right);
+ 
+            int i = 0;
+            int j = 0;
+            int k = 0;
+ 
+            // Merge left and right arrays
+            while(i < left.length && j < right.length)
+            {
+                if(left[i] < right[j])
+                {
+                    arr[k] = left[i];
+                    i++;
+                }
+                else
+                {
+                    arr[k] = right[j];
+                    j++;
+                }
+                k++;
+            }
+            // Collect remaining elements
+            while(i < left.length)
+            {
+                arr[k] = left[i];
                 i++;
+                k++;
             }
-        } else {
-            for (k = l; k <= mid; k++) {
-                temp[i] = arr[k];
-                i++;
+            while(j < right.length)
+            {
+                arr[k] = right[j];
+                j++;
+                k++;
             }
         }
-        for (k = low; k <= high; k++) {
-            arr[k] = temp[k];
-        }
+       
     }
-
+    
 }

@@ -50,7 +50,7 @@ public class binaryHeap {
         if (size > 0) {// check if the array has element
             array[0] = array[size - 1];// replace the max element with the smallest
             size--;// decerement the counter
-            heapify(array, 0, size);// alocate the eleemtn downward
+            heapify(array, 0, size);// allocate the element downward
         } else {
             System.out.println("array is empty");
         }
@@ -64,7 +64,7 @@ public class binaryHeap {
     public void sort(int[] array) {
         bulidMaxHeap(array);// bulid max heap
         int x = array.length;// get the the length of the array
-        int i;// set the varablies
+        int i;// set the variables
         for (i = 1; i < x; i++) {// loop over the entered array
             int s = array[0];// get the max elements
             array[0] = array[x - i];// replace the first element to the first element

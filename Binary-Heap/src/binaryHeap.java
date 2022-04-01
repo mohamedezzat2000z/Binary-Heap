@@ -1,12 +1,24 @@
+/** Heap Class */
 public class binaryHeap {
 
-    public int[] array;
-    private int size = 0;
+    /** Variables stored in heap */
+    public int[] array; // array's heap
+    private int size = 0; // number of elements in the heap
 
+    /**
+     * Constructor
+     * 
+     * @param size max size of the heap
+     */
     public binaryHeap(int size) {
         array = new int[size];
     }
 
+    /**
+     * Build max heap method
+     * 
+     * @param nums array to build from
+     */
     public void bulidMaxHeap(int[] nums) {
         int x = nums.length;
         int i;
@@ -15,12 +27,17 @@ public class binaryHeap {
         }
     }
 
+    /**
+     * inserts an element inside the heap
+     * 
+     * @param o element to be inserted
+     */
     public void insert(int o) {
         try {
-            array[size] = o;
-            heapify(size, o);
-            size++;
-        } catch (Exception e) {
+            array[size] = o;// insert in the leaf
+            heapify(size, o);// preallocate up
+            size++;// increment the size
+        } catch (Exception e) {// if there is an exception (array out of bounds)
             e.printStackTrace();
         }
     }
@@ -49,13 +66,22 @@ public class binaryHeap {
 
     }
 
+    /**
+     * heapify with preallocate up
+     * 
+     * @param s current size of the heap
+     * @param k element after insertion
+     */
     private void heapify(int s, int k) {
-        while ((s > 0) && (k > array[s / 2])) {
+        while ((s > 0) && (k > array[s / 2])) {// compare the element with its parent
+            // if bigger switch with its parent
             int temp = array[s];
             array[s] = array[s / 2];
             array[s / 2] = temp;
+            // update the array pointer to check for the next parent comparison
             s /= 2;
         }
+        // if not do nothing
     }
 
     public void heapify(int[] nums, int k, int len) {
